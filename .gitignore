@@ -1,0 +1,8 @@
+node_modules/
+.DS_Store
+.vs
+.vscode
+phpMyAdmin/
+PRIVATE.php
+test.txt
+
