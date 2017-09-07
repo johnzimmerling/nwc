@@ -224,6 +224,7 @@ else if ($data->task == 'insertNewReferral') {
   $sql  = 'insert into nwc.referrals (' ;
   $sql .= "ref_from, ";
   $sql .= "ref_to, ";
+  $sql .= "ref_date, ";
   $sql .= "ref_desc, ";
   $sql .= "ref_location, ";
   $sql .= "ref_cnt_f_name, ";
@@ -238,6 +239,7 @@ else if ($data->task == 'insertNewReferral') {
   $sql .= "values ('";
   $sql .= $data->referral->originator                . "', '"; 
   $sql .= $data->referral->recipient->mbrID          . "', '";
+  $sql .= $data->referral->date                      . "', '";
   $sql .= $data->referral->description               . "', '"; 
   $sql .= $data->referral->location                  . "', '"; 
   $sql .= $data->referral->contactNameFirst          . "', '"; 
