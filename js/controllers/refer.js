@@ -21,7 +21,7 @@ nwc.controller('ReferralController', ['$scope', '$http', '$location', 'Data', '$
         });
 
         var currentMember = Data.getCurrentMember();
-        $scope.referral.originator = currentMember.id;
+        $scope.referral.originator = currentMember.mbrID;
 
         Data.getTemperature().then(function(results){
             $scope.temperature = results;

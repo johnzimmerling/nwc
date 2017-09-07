@@ -106,7 +106,7 @@ else if ($data->task == 'getMemberInfo') {
 }
 
 else if ($data->task == 'getReferrals') {
-    $debug = true ;
+    $debug = false ;
     $myArray = array();
     if(true)
     {
@@ -219,7 +219,7 @@ else if ($data->task == 'logout') {
 }
 
 else if ($data->task == 'insertNewReferral') {
-  $debug = false ;
+  $debug = true;
 
   $sql  = 'insert into nwc.referrals (' ;
   $sql .= "ref_from, ";
@@ -237,7 +237,7 @@ else if ($data->task == 'insertNewReferral') {
   $sql .= "ref_markread) ";
   $sql .= "values ('";
   $sql .= $data->referral->originator                . "', '"; 
-  $sql .= $data->referral->recipient->id             . "', '";
+  $sql .= $data->referral->recipient->mbrID          . "', '";
   $sql .= $data->referral->description               . "', '"; 
   $sql .= $data->referral->location                  . "', '"; 
   $sql .= $data->referral->contactNameFirst          . "', '"; 

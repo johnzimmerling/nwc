@@ -18,7 +18,7 @@ nwc.controller('RegistrationController', ['$scope', '$http', '$location', 'Data'
                 } else {
                     Data.setCurrentMember('');
                     $scope.invalidMessage = txtLogin.credentialsInvalid;
-                    toaster.pop('error', "", txtLogin.credentialsInvalid, 3000, 'trustedHtml'); debugger;
+                    toaster.pop('error', "", txtLogin.credentialsInvalid, 3000, 'trustedHtml'); 
                 }
 
             }, function(err) {
