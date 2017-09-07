@@ -10,6 +10,7 @@ nwc.controller('ReferralController', ['$scope', '$http', '$location', 'Data', '$
             {description : txtRefer.outside, id : '2'}
         ];
 
+       
         $scope.referralDelivery = [
             {description : txtRefer.youcall,  id : '1'},
             {description : txtRefer.theycall, id : '2'},
