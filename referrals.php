@@ -219,7 +219,7 @@ else if ($data->task == 'logout') {
 }
 
 else if ($data->task == 'insertNewReferral') {
-  $debug = false;
+  $debug = true;
 
   $sql  = 'insert into nwc.referrals (' ;
   $sql .= "ref_from, ";
@@ -234,7 +234,7 @@ else if ($data->task == 'insertNewReferral') {
   $sql .= "ref_type, ";
   $sql .= "ref_temp, ";
   $sql .= "ref_delivery, ";
-  $sql .= "ref_markread) ";
+  $sql .= "ref_mark_read) ";
   $sql .= "values ('";
   $sql .= $data->referral->originator                . "', '"; 
   $sql .= $data->referral->recipient->mbrID          . "', '";
@@ -246,11 +246,11 @@ else if ($data->task == 'insertNewReferral') {
   $sql .= $data->referral->phone                     . "', '"; 
   $sql .= $data->referral->email                     . "', '"; 
   $sql .= $data->referral->type->description         . "', '"; 
-  $sql .= $data->referral->temperature->description  . "', '"; 
-  $sql .= $data->referral->delivery                  . "', '"; 
+  $sql .= $data->referral->temperature->tmpID        . "', '"; 
+  $sql .= $data->referral->delivery->description     . "', '"; 
   $sql .= 'new'                                      . "') ;";
 
-  // $result = mysqli_query($conn, $sql);
+  $result = mysqli_query($conn, $sql);
   if (!$result) {
     echo "Error: " . $sql . "<br>" ;
   } else {
