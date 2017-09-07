@@ -219,7 +219,7 @@ else if ($data->task == 'logout') {
 }
 
 else if ($data->task == 'insertNewReferral') {
-  $debug = true;
+  $debug = false;
 
   $sql  = 'insert into nwc.referrals (' ;
   $sql .= "ref_from, ";
