@@ -220,6 +220,8 @@ else if ($data->task == 'logout') {
 
 else if ($data->task == 'insertNewReferral') {
   $debug = true;
+ 
+  $ref_date=date('Y-m-d', strtotime($data->referral->refdate));
 
   $sql  = 'insert into nwc.referrals (' ;
   $sql .= "ref_from, ";
@@ -239,7 +241,7 @@ else if ($data->task == 'insertNewReferral') {
   $sql .= "values ('";
   $sql .= $data->referral->originator                . "', '"; 
   $sql .= $data->referral->recipient->mbrID          . "', '";
-  $sql .= $data->referral->date                      . "', '";
+  $sql .= $ref_date                                  . "', '";
   $sql .= $data->referral->description               . "', '"; 
   $sql .= $data->referral->location                  . "', '"; 
   $sql .= $data->referral->contactNameFirst          . "', '"; 

@@ -29,7 +29,7 @@ var txtNavigation = {
 
 var txtRefer = {
     pageTitle: 'Send A New Referral',
-    date: 'Referral Date',
+    refdate: 'Referral Date',
     recipient: 'Referral For',
     selectRecipient: 'Select Member',
     temperature: 'Temperature',

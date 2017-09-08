@@ -7,11 +7,12 @@
         <div class="clearfix"></div>
 
         <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
-          <label for="date" ng-class="applyThisClass(member)">{{prompts.date}}</label>
+          <label for="refdate" ng-class="applyThisClass(member)">{{prompts.refdate}}</label>
           <input class="form-control" 
                  type="date" 
-                 name="date"
-                 ng-model="referral.date">
+                 name="refdate"
+                 id="date"
+                 ng-model="referral.refdate">
         </div>  
         
         <div class="form-group col-xs-10 col-sm-3 col-md-3 col-lg-3 required">
