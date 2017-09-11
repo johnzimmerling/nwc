@@ -1,5 +1,5 @@
 var nwc = angular.module('nwc', ['ngRoute', 'ngAnimate', 'toaster', 'ngTouch',
-                                     'ui.grid', 'ngMessages', 'daterangepicker']);
+                                     'ui.grid', 'ngMessages', 'daterangepicker', 'ui.mask']);
 
 nwc.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
     

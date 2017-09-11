@@ -16,7 +16,7 @@ $conn=mysqli_connect($ip,$user,$pass,$db) or die('Error connecting to MySQL serv
 $data = json_decode(file_get_contents("php://input"));
 
 if ($data->task == 'validate') {
-  $debug = true;
+  $debug = false;
   $myArray    = array();
 
   $sql  = "select * from nwc.members where ";
