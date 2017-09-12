@@ -15,7 +15,7 @@
 
 
     <script src="node_modules/angular/angular.min.js"></script>
-    <script src="bower_components/angular-ui-mask/dist/mask.js"></script>
+    <script src="node_modules/angular-ui-mask/dist/mask.js"></script>
     <script src="node_modules/angular-route/angular-route.min.js"></script>
 
 
