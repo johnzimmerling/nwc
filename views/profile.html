@@ -127,7 +127,7 @@
                  type="text" 
                  name="phone" 
                  ui-mask="(999) 999-9999"
-                 placeholder="{{prompts.phonePrimary}}"
+                 ui-mask-placeholder ui-mask-placeholder-char="_"
                  ng-model="member.mbr_phone" 
                  ng-required="true">
           <p class="text-danger"
@@ -141,7 +141,7 @@
                  type="text" 
                  name="phoneAlternate" 
                  ui-mask="(999) 999-9999"
-                 placeholder="{{prompts.phoneAlternate}}"
+                 ui-mask-placeholder ui-mask-placeholder-char="_"
                  ng-model="member.mbr_alt_phone" 
                  ng-required="false">
         </div>
