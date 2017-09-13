@@ -85,7 +85,7 @@ var txtReferralDetails = {
     location: 'Location of Work',
     type: 'Referral Type',
     temperature: 'Temperature',
-    yourProfit: 'Value of Referral',
+    refvalue: 'Value of Referral',
     markRead: 'Mark Referral as Read',
     closeThisReferral: 'Close This Referral On',
     btnCancel: 'Cancel',

@@ -113,7 +113,7 @@ else if ($data->task == 'getReferrals') {
       $sql  = "SELECT concat(c1.mbr_f_name,' ',c1.mbr_l_name) AS referralfrom, ";
       $sql .= "r.ref_desc as description, ";
       $sql .= "date_format(r.ref_date,'%b %d, %Y') as referral_date, ";
-      // $sql .= "r.refID as id, ";
+      $sql .= "r.refID as id, ";
       $sql .= "concat(r.ref_cnt_f_name,' ',r.ref_cnt_l_name) as contact, ";
       $sql .= "r.ref_cnt_title as title, ";
       $sql .= "r.ref_cnt_phone as phone, ";
@@ -306,7 +306,7 @@ else if ($data->task == 'updateuser') {
 
 else if ($data->task == 'updateReferral') {
 // don't do an update without values 
-  $debug = false;
+  $debug = true;
   $processUpdate = false;
 
   $sql  = "update nwc.referrals ";
@@ -317,20 +317,20 @@ else if ($data->task == 'updateReferral') {
       $sql .= "ref_closed_date='" . $data->referral->closereferraldate . "' " ;
   }
 
-  if (!is_null($data->referral->dollarestimate)){
+  if (!is_null($data->referral->value)){
       $processUpdate = true;
       if (!is_null($data->referral->dateclosed)){
           $sql .= ", ";
       }
-      $sql .= "ref_closed_value='" . $data->referral->dollarestimate . "' ";
+      $sql .= "ref_closed_value='" . $data->referral->value . "' ";
   }   
 
   if (!is_null($data->referral->markread)){
       $processUpdate = true;
-      if (!is_null($data->referral->dateclosed) || !is_null($data->referral->dollarestimate) ){
+      if (!is_null($data->referral->dateclosed) || !is_null($data->referral->value) ){
           $sql .= ", ";
       }
-      $sql .= "ref_markread='" . $data->referral->markread . "' ";
+      $sql .= "ref_mark_read='" . $data->referral->markread . "' ";
   }   
 
 
