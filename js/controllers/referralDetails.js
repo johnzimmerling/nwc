@@ -4,8 +4,15 @@ nwc.controller('ReferralDetailsController', ['$scope', '$http', '$location', 'Da
         $scope.prompts = txtReferralDetails; 
         $scope.referral = Data.getCurrentReferral(); 
         $scope.member = Data.getCurrentMember();
-
-        var datePrompts = txtDatePicker;
+        
+        if($scope.referral.closereferraldate === null){  
+        } 
+        else $scope.referral.closereferraldate = new Date($scope.referral.closereferraldate);
+       
+        $scope.referral.value = parseInt($scope.referral.value);
+       
+       
+        // var datePrompts = txtDatePicker;
 
         // var dateRangePickerCallBack = function(start, end, label) {
         //     $('#closeThisReferral span').html(start.format(datePrompts.format));
@@ -43,11 +50,11 @@ nwc.controller('ReferralDetailsController', ['$scope', '$http', '$location', 'Da
 
         // $('#closeThisReferral').daterangepicker(dateConfig, dateRangePickerCallBack);
 
-        if ($scope.referral.closereferraldate===null){
+        // if ($scope.referral.closereferraldate===null){
 
-        } else {
-            $scope.referral.dateclosed = new Date($scope.referral.closereferraldate);
-        }
+        // } else {
+        //     $scope.referral.dateclosed = new Date($scope.referral.closereferraldate);
+        // }
 
         //$scope.daysAgo = $scope.referral.Referral_Date + ' (' + dateDiffInDays($scope.referral.Referral_Date) + ' days ago)';
 

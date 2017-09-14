@@ -121,7 +121,7 @@ else if ($data->task == 'getReferrals') {
       $sql .= "r.ref_location as location, ";
       $sql .= "r.ref_type as type, ";
       $sql .= "t.tmpDesc as temperature, ";
-      //$sql .= "date_format(r.ref_closed_date,'%b %d, %Y') as Close_Date, ";
+      $sql .= "date_format(r.ref_closed_date,'%b %d, %Y') as closereferraldate, ";
       $sql .= "r.ref_mark_read as markread, ";      
       $sql .= "r.ref_delivery as delivery, ";      
       $sql .= "r.ref_closed_value as value "; 
@@ -219,7 +219,7 @@ else if ($data->task == 'logout') {
 }
 
 else if ($data->task == 'insertNewReferral') {
-  $debug = true;
+  $debug = false;
  
   $ref_date=date('Y-m-d', strtotime($data->referral->refdate));
 
@@ -306,20 +306,22 @@ else if ($data->task == 'updateuser') {
 
 else if ($data->task == 'updateReferral') {
 // don't do an update without values 
-  $debug = true;
+  $debug = false;
   $processUpdate = false;
+
+  $closed=date('Y-m-d', strtotime($data->referral->closereferraldate));
 
   $sql  = "update nwc.referrals ";
   $sql .= "set ";
 
-  if (!is_null($data->referral->dateclosed)){
+  if (!is_null($data->referral->closereferraldate)){
       $processUpdate = true;
-      $sql .= "ref_closed_date='" . $data->referral->closereferraldate . "' " ;
+      $sql .= "ref_closed_date='" . $closed . "' " ;
   }
 
   if (!is_null($data->referral->value)){
       $processUpdate = true;
-      if (!is_null($data->referral->dateclosed)){
+      if (!is_null($data->referral->closereferraldate)){
           $sql .= ", ";
       }
       $sql .= "ref_closed_value='" . $data->referral->value . "' ";
@@ -327,7 +329,7 @@ else if ($data->task == 'updateReferral') {
 
   if (!is_null($data->referral->markread)){
       $processUpdate = true;
-      if (!is_null($data->referral->dateclosed) || !is_null($data->referral->value) ){
+      if (!is_null($data->referral->closereferraldate) || !is_null($data->referral->value) ){
           $sql .= ", ";
       }
       $sql .= "ref_mark_read='" . $data->referral->markread . "' ";

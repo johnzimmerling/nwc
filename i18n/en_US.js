@@ -78,7 +78,7 @@ var txtReferralDetails = {
     dateOfReferral: 'Date of Referral',
     description: 'Description',
     contactName: 'Contact Name',
-    contactOccupation: 'Contact Occupation',
+    contactOccupation: 'Contact Title',
     contactPhoneNumber: 'Contact Phone Number',
     delivery: 'Delivery',
     contactEmailAddress: 'Contact Email Address',
@@ -87,7 +87,7 @@ var txtReferralDetails = {
     temperature: 'Temperature',
     refvalue: 'Value of Referral',
     markRead: 'Mark Referral as Read',
-    closeThisReferral: 'Close This Referral On',
+    closereferraldate: 'Referral Closed On',
     btnCancel: 'Cancel',
     btnSubmit: 'Done',
     updateReferral: 'Saved updates to referral.'
