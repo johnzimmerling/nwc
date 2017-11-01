@@ -223,7 +223,7 @@ else if ($data->task == 'insertNewReferral') {
  
   $ref_date=date('Y-m-d', strtotime($data->referral->refdate));
 
-  $sql  = 'insert into nwc.referrals (' ;
+  $sql = "insert into nwc.referrals(" ;
   $sql .= "ref_from, ";
   $sql .= "ref_to, ";
   $sql .= "ref_date, ";
@@ -238,28 +238,53 @@ else if ($data->task == 'insertNewReferral') {
   $sql .= "ref_temp, ";
   $sql .= "ref_delivery, ";
   $sql .= "ref_mark_read) ";
-  $sql .= "values ('";
-  $sql .= $data->referral->originator                . "', '"; 
-  $sql .= $data->referral->recipient->mbrID          . "', '";
-  $sql .= $ref_date                                  . "', '";
-  $sql .= $data->referral->description               . "', '"; 
-  $sql .= $data->referral->location                  . "', '"; 
-  $sql .= $data->referral->contactNameFirst          . "', '"; 
-  $sql .= $data->referral->contactNameLast           . "', '"; 
-  $sql .= $data->referral->occupation                . "', '"; 
-  $sql .= $data->referral->phone                     . "', '"; 
-  $sql .= $data->referral->email                     . "', '"; 
-  $sql .= $data->referral->type->description         . "', '"; 
-  $sql .= $data->referral->temperature->tmpID        . "', '"; 
-  $sql .= $data->referral->delivery->description     . "', '"; 
-  $sql .= 'new'                                      . "') ;";
+  $sql.= "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  
+  
+  $stmt = mysqli_stmt_init($conn);
+   mysqli_stmt_prepare($stmt,$sql){
+   mysqli_stmt_bind_param($stmt,"ssssssssssssss",
+   $originator,
+   $mbrID,
+   $rdate,
+   $description,
+   $location,
+   $first,
+   $last,
+   $occupation,
+   $phone,
+   $email,
+   $type,
+   $temperature,
+   $delivery,
+   $new)};  
+
+  $originator = $data->referral->originator;      
+  $mbrID = $data->referral->recipient->mbrID;
+  $rdate = $ref_date;
+  $description = $data->referral->description;    
+  $location = $data->referral->location; 
+  $first = $data->referral->contactNameFirst;          
+  $last = $data->referral->contactNameLast;           
+  $occupation = $data->referral->occupation;                 
+  $phone = $data->referral->phone;                      
+  $email = $data->referral->email;                      
+  $type = $data->referral->type->description;         
+  $temperature = $data->referral->temperature->tmpID;         
+  $delivery = $data->referral->delivery->description;     
+  $new = 'new';
+
+
+  
+  mysqli_stmt_execute($stmt);
+  mysqli_stmt_close($stmt);
 
   $result = mysqli_query($conn, $sql);
   if (!$result) {
     echo "Error: " . $sql . "<br>" ;
   } else {
     echo 'success';
-  }            
+  }           
 
 }
 
