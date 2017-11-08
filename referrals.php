@@ -19,7 +19,7 @@ if ($data->task == 'validate') {
   $debug = false;
   $myArray    = array();
 
-  $sql  = "select * from nwc.members where ";
+  $sql  = "select * from nwc.members where mbr_active !='2' and ";
   $sql .= "onlineID='"   . $data->onlineID . "' and ";
   $sql .= "password='" . $data->password . "'";
 
@@ -90,7 +90,8 @@ else if ($data->task == 'getMemberInfo') {
     $myArray = array();
     if(isset($_SESSION["currentuser"]))
     {
-      $sql = "SELECT * FROM nwc.members where onlineID != '" . $_SESSION["currentuser"] . "'";
+      $sql  = "SELECT * FROM nwc.members where onlineID != '" . $_SESSION["currentuser"] . "' and ";
+      $sql .= "mbr_active != '2' ";
       $result = mysqli_query($conn, $sql);
       if (!$result) {
         echo "Error: " . $sql . '<br>' ;
